@@ -24,3 +24,12 @@ func TestMatchesRoot(t *testing.T) {
 	assert.True(t, antPattern.Matches("/"))
 	assert.Equal(t, "/**", antPattern.String())
 }
+
+func TestFindStringSubmatch(t *testing.T) {
+
+	antPattern := MustCompile("/foo(/**)")
+
+	result := antPattern.FindStringSubmatch("/foo/bar")
+
+	assert.Equal(t, "/bar", result[1])
+}

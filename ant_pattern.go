@@ -103,3 +103,7 @@ func (pattern *AntPattern) String() string {
 func (pattern *AntPattern) Matches(path string) bool {
 	return pattern.regexPattern.MatchString(path)
 }
+
+func (pattern *AntPattern) FindStringSubmatch(path string) []string {
+	return pattern.regexPattern.FindStringSubmatch(path)
+}
